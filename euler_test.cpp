@@ -15,5 +15,6 @@ int main() {
     int count = 0;
     print(EIUPtr(new P001()), ++count);
     print(EIUPtr(new P002()), ++count);
+    print(EIUPtr(new P003()), ++count);
     std::cout << "-----Completed " << count << " tests-----" << std::endl;
 }
