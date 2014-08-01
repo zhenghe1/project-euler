@@ -1,7 +1,6 @@
 /* What is the largest prime factor of the number 600851475143 ? */
 
 #include "euler_interface.h"
-#include <unordered_set>
 
 class P003 : public EI {
     public:
