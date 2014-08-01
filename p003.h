@@ -8,8 +8,7 @@ class P003 : public EI {
             unsigned long long number = 600851475143;
             unsigned short divisor = 2;
             unsigned short largestDivisor = 0;
-            unsigned short largestPrime = 0;
-            
+
             while(number != 1) {
                 if(number % divisor != 0) {
                     ++divisor;
@@ -17,30 +16,12 @@ class P003 : public EI {
                     number /= divisor;
                     if(largestDivisor < divisor) {
                         largestDivisor = divisor;
-                        if(isPrime(largestDivisor) && largestPrime < largestDivisor) {
-                            largestPrime = largestDivisor;
-                        }
                     }
                     divisor = 2;
                 }
             }
-            return std::to_string(largestPrime);
+            return std::to_string(largestDivisor);
+            
         }
         
-        bool isPrime(const unsigned short num) {
-            if(num == 1) {
-                return false;
-            } else if(num % 2 == 0 && num != 2) {
-                return false;        
-            } else {
-                unsigned short divisor = num - 1;
-                while(divisor > 1) {
-                    if(num % divisor == 0) {
-                        return false;
-                    }
-                    divisor -= 2;
-                }
-                return true;
-            }
-        }
 };
