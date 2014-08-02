@@ -11,6 +11,7 @@ class P008 : public EI {
             unsigned long tempProd;
             
             // Use a double ended queue to create a box of 13 adjacent numbers
+            // Box moves one digit at a time to the right. This way, it avoids calculating all 13 digits per iteration and only accounts for a single digit per iteration.
             std::deque<unsigned short> adjNum;
             std::string::const_iterator strIt = NUMBER.begin();
             for(unsigned int i = 0; i < SIZE; i++) {
