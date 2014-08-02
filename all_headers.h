@@ -8,5 +8,6 @@
 #include "p003.h"
 #include "p004.h"
 #include "p005.h"
+#include "p006.h"
 
 #endif
