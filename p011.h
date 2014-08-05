@@ -196,21 +196,6 @@ class P011 : public EI {
                         product = products[i];
                     }
                 }
-                // calculate new diagonals \ and /
-                products[8] = 1; products[9] = 1;
-                square[8].clear(); square[9].clear();
-                for(int i = 0; i < 4; i++) {
-                    products[8] *= numGrid[rowStart+i][colStart+i];
-                    square[8].push_back(numGrid[rowStart+i][colStart+i]);
-                }
-                if(product < products[8]) product = products[8];
-                int j = 3;
-                for(int i = 0; i < 4; i++) {
-                    products[9] *= numGrid[rowStart+i][colStart+j];
-                    square[9].push_back(numGrid[rowStart+i][colStart+j]);
-                    j--;
-                }
-                if(product < products[9]) product = products[9];
             } else if(direction == 2) { // moving right a column
                 // shift columns right
                 for(int i = 0; i < 3; i++) {
@@ -246,22 +231,6 @@ class P011 : public EI {
                         product = products[i];
                     }
                 }
-                
-                // calculate new diagonals \ and /
-                products[8] = 1; products[9] = 1;
-                square[8].clear(); square[9].clear();
-                for(int i = 0; i < 4; i++) {
-                    products[8] *= numGrid[rowStart+i][colStart+i];
-                    square[8].push_back(numGrid[rowStart+i][colStart+i]);
-                }
-                if(product < products[8]) product = products[8];
-                int j = 3;
-                for(int i = 0; i < 4; i++) {
-                    products[9] *= numGrid[rowStart+i][colStart+j];
-                    square[9].push_back(numGrid[rowStart+i][colStart+j]);
-                    j--;
-                }
-                if(product < products[9]) product = products[9];
             } else if(direction == 3) { // moving up a row
                 // shift rows up
                 for(int i = 7; i > 4; i--) {
@@ -299,23 +268,22 @@ class P011 : public EI {
                         product = products[i];
                     }
                 }
-                
-                // calculate new diagonals \ and /
-                products[8] = 1; products[9] = 1;
-                square[8].clear(); square[9].clear();
-                for(int i = 0; i < 4; i++) {
-                    products[8] *= numGrid[rowStart+i][colStart+i];
-                    square[8].push_back(numGrid[rowStart+i][colStart+i]);
-                }
-                if(product < products[8]) product = products[8];
-                int j = 3;
-                for(int i = 0; i < 4; i++) {
-                    products[9] *= numGrid[rowStart+i][colStart+j];
-                    square[9].push_back(numGrid[rowStart+i][colStart+j]);
-                    j--;
-                }
-                if(product < products[9]) product = products[9];
             }
+            // calculate new diagonals \ and /
+            products[8] = 1; products[9] = 1;
+            square[8].clear(); square[9].clear();
+            for(int i = 0; i < 4; i++) {
+                products[8] *= numGrid[rowStart+i][colStart+i];
+                square[8].push_back(numGrid[rowStart+i][colStart+i]);
+            }
+            if(product < products[8]) product = products[8];
+            int j = 3;
+            for(int i = 0; i < 4; i++) {
+                products[9] *= numGrid[rowStart+i][colStart+j];
+                square[9].push_back(numGrid[rowStart+i][colStart+j]);
+                j--;
+            }
+            if(product < products[9]) product = products[9];
         }
         
 };
